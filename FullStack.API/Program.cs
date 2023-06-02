@@ -1,5 +1,6 @@
-using FullStack.API.Data;
+
 using Microsoft.EntityFrameworkCore;
+using Repositories.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 

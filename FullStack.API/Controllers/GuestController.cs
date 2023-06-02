@@ -1,8 +1,9 @@
 ﻿using Entities.Models;
-using FullStack.API.Data;
+
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Repositories.Core;
 
 namespace FullStack.API.Controllers
 {   
