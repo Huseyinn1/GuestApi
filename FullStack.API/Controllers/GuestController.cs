@@ -1,5 +1,6 @@
-﻿using FullStack.API.Data;
-using FullStack.API.Models;
+﻿using Entities.Models;
+using FullStack.API.Data;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,9 +11,9 @@ namespace FullStack.API.Controllers
 
     public class GuestController : Controller
     {
-        readonly private GuestAPIDbcontext _guestAPIDbcontext;
+        readonly private RepositoryContext _guestAPIDbcontext;
 
-        public GuestController(GuestAPIDbcontext guestAPIDbcontext)
+        public GuestController(RepositoryContext guestAPIDbcontext)
         {
             _guestAPIDbcontext = guestAPIDbcontext;
         }

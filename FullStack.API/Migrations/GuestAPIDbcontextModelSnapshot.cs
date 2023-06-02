@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FullStack.API.Migrations
 {
-    [DbContext(typeof(GuestAPIDbcontext))]
+    [DbContext(typeof(RepositoryContext))]
     partial class GuestAPIDbcontextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

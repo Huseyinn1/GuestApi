@@ -1,11 +1,12 @@
-﻿using FullStack.API.Models;
+﻿
+using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace FullStack.API.Data
 {
-    public class GuestAPIDbcontext : DbContext
+    public class RepositoryContext : DbContext
     {
-        public GuestAPIDbcontext(DbContextOptions options) : base(options)
+        public RepositoryContext(DbContextOptions options) : base(options)
         {
         }
 

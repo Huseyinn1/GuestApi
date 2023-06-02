@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FullStack.API.Migrations
 {
-    [DbContext(typeof(GuestAPIDbcontext))]
+    [DbContext(typeof(RepositoryContext))]
     [Migration("20230529201019_Initial Migration")]
     partial class InitialMigration
     {
