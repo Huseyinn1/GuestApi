@@ -12,13 +12,15 @@ namespace Repositories.Core
 
 
         private readonly RepositoryContext _context;
+        private readonly Lazy<IGuestRepository> _guestRepository;
 
         public RepositoryManager(RepositoryContext context)
         {
             _context = context;
+            _guestRepository = new Lazy<IGuestRepository>(() => new GuestRepository(_context));
         }
 
-        public IGuestRepository Guest => new GuestRepository(_context);
+        public IGuestRepository Guest => _guestRepository.Value;
 
         public void Save()
         {

@@ -1,4 +1,5 @@
 
+using FullStack.API.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Core;
 
@@ -10,9 +11,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<RepositoryContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); 
-
+builder.Services.ConfigureSqlContext(builder.Configuration);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
