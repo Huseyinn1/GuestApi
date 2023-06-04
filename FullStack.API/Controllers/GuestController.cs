@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
 using Repositories.Core;
+using Services.Contracts;
 
 namespace FullStack.API.Controllers
 {   
@@ -13,9 +14,9 @@ namespace FullStack.API.Controllers
 
     public class GuestController : Controller
     {
-        readonly private IRepositoryManager _manager;
+        private readonly IServiceManager _manager;
 
-        public GuestController(IRepositoryManager manager)
+        public GuestController(IServiceManager manager)
         {
             _manager = manager;
         }
@@ -23,16 +24,16 @@ namespace FullStack.API.Controllers
         [HttpGet]
         public  IActionResult GetAllGuests()
         {
-          var guests =  _manager.Guest.GetAllGuests(false);
+          var guests = _manager.GuestService.GetAllGuests(false);
           
             return Ok(guests);
 
         }
        [HttpGet]
         [Route("{id:Guid}")]
-        public IActionResult GetGuest([FromRoute] Guid id)
+        public IActionResult GetOneGuest([FromRoute] Guid id)
         {
-            var  guest =  _manager.Guest.GetOneGuestById(id,false);
+            var  guest =  _manager.GuestService.GetOneGuestById(id,false);
             if (guest == null)
             {
                 return NotFound();
@@ -43,47 +44,39 @@ namespace FullStack.API.Controllers
 
 
        [HttpPost]
-        public IActionResult AddGuests([FromBody] Guest guest)
+        public IActionResult CreateGuests([FromBody] Guest guest)
         {
             guest.Id = Guid.NewGuid();
-            _manager.Guest.CreateOneGuest(guest);
-            _manager.Save();
+            _manager.GuestService.CreateOneGuest(guest);
+         
             return Ok(guest);
         }
         [HttpPut]
         [Route("{id:Guid}")]
 
-        public  IActionResult UpdateGuest([FromRoute] Guid id,Guest updateGuest)
+        public  IActionResult UpdateGuest([FromRoute] Guid id,Guest guest)
         {
-           var guest =_manager.Guest.GetOneGuestById(id,true);
-            if (guest == null)
+            try
             {
-                return NotFound();
+                if (guest is null)
+                    return BadRequest(); //400
+                
+                _manager.GuestService.UpdateOneGuest(id,guest,true);
+                return NoContent(); //204
             }
-
-            guest.firstName = updateGuest.firstName;
-            guest.surname = updateGuest.surname;
-            guest.phone = updateGuest.phone;
-            guest.email = updateGuest.email;
-
-             _manager.Save();
-
-            return Ok(guest);
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
         [HttpDelete]
         [Route("{id:Guid}")]
         public  IActionResult DeleteGuest([FromRoute] Guid id)
          {
-             var guest =  _manager.Guest.GetOneGuestById(id,false);
-             if (guest == null)
-             {
-                 return NotFound();
-             }
+           
 
-             _manager.Guest.Delete(guest);
-              _manager.Save();
-             return Ok(guest);
-
+            _manager.GuestService.DeleteOneGuest(id, false);
+             return NoContent() ;
          }
 
     }
