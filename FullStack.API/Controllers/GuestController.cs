@@ -3,6 +3,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Repositories.Contracts;
 using Repositories.Core;
 
 namespace FullStack.API.Controllers
@@ -12,25 +13,26 @@ namespace FullStack.API.Controllers
 
     public class GuestController : Controller
     {
-        readonly private RepositoryContext _guestAPIDbcontext;
+        readonly private IRepositoryManager _manager;
 
-        public GuestController(RepositoryContext guestAPIDbcontext)
+        public GuestController(IRepositoryManager manager)
         {
-            _guestAPIDbcontext = guestAPIDbcontext;
+            _manager = manager;
         }
+
         [HttpGet]
-        public async Task<IActionResult> GetAllGuests()
+        public  IActionResult GetAllGuests()
         {
-          var guests = await _guestAPIDbcontext.Guests.ToListAsync();
+          var guests =  _manager.Guest.GetAllGuests(false);
           
             return Ok(guests);
 
         }
        [HttpGet]
         [Route("{id:Guid}")]
-        public async Task<IActionResult> GetGuest([FromRoute] Guid id)
+        public IActionResult GetGuest([FromRoute] Guid id)
         {
-            var  guest =  await _guestAPIDbcontext.Guests.FirstOrDefaultAsync(x => x.Id == id);
+            var  guest =  _manager.Guest.GetOneGuestById(id,false);
             if (guest == null)
             {
                 return NotFound();
@@ -41,19 +43,19 @@ namespace FullStack.API.Controllers
 
 
        [HttpPost]
-        public async Task<IActionResult> AddGuests([FromBody] Guest guestRequest)
+        public IActionResult AddGuests([FromBody] Guest guest)
         {
-            guestRequest.Id = Guid.NewGuid();
-            await _guestAPIDbcontext.Guests.AddAsync(guestRequest);
-            await _guestAPIDbcontext.SaveChangesAsync();
-            return Ok(guestRequest);
+            guest.Id = Guid.NewGuid();
+            _manager.Guest.CreateOneGuest(guest);
+            _manager.Save();
+            return Ok(guest);
         }
         [HttpPut]
         [Route("{id:Guid}")]
 
-        public async Task<IActionResult>UpdateGuest([FromRoute] Guid id,Guest updateGuest)
+        public  IActionResult UpdateGuest([FromRoute] Guid id,Guest updateGuest)
         {
-           var guest = await  _guestAPIDbcontext.Guests.FindAsync(id);
+           var guest =_manager.Guest.GetOneGuestById(id,true);
             if (guest == null)
             {
                 return NotFound();
@@ -64,22 +66,22 @@ namespace FullStack.API.Controllers
             guest.phone = updateGuest.phone;
             guest.email = updateGuest.email;
 
-            await _guestAPIDbcontext.SaveChangesAsync();
+             _manager.Save();
 
             return Ok(guest);
         }
         [HttpDelete]
         [Route("{id:Guid}")]
-        public async Task<IActionResult> DeleteGuest([FromRoute] Guid id)
+        public  IActionResult DeleteGuest([FromRoute] Guid id)
          {
-             var guest = await _guestAPIDbcontext.Guests.FindAsync(id);
+             var guest =  _manager.Guest.GetOneGuestById(id,false);
              if (guest == null)
              {
                  return NotFound();
              }
 
-             _guestAPIDbcontext.Guests.Remove(guest);
-             await _guestAPIDbcontext.SaveChangesAsync();
+             _manager.Guest.Delete(guest);
+              _manager.Save();
              return Ok(guest);
 
          }

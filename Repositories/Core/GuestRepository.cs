@@ -14,7 +14,9 @@ namespace Repositories.Core
         {
         }
 
-        public void CreateoneGuest(Guest guest) => Create(guest);
+        public void CreateOneGuest(Guest guest) => Create(guest);
+
+  
 
         public void DeleteOneGuest(Guest guest) => Delete(guest);
       
@@ -24,9 +26,9 @@ namespace Repositories.Core
             FindAll(trackChanges).OrderBy(x => x.Id);
         
 
-        public IQueryable<Guest> GetOneGuestById(int id, bool trackChanges) => 
+        public Guest GetOneGuestById(Guid id, bool trackChanges) => 
            
-            FindByCondition(b =>b.Id.Equals(id),trackChanges);
+            FindByCondition(b =>b.Id.Equals(id),trackChanges).SingleOrDefault();
                 
         public void UpdateOneGuest(Guest guest) => Update(guest);
     
