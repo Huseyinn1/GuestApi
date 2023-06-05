@@ -1,18 +1,17 @@
 ﻿using Entities.Models;
-
-
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Repositories.Contracts;
-using Repositories.Core;
 using Services.Contracts;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace FullStack.API.Controllers
-{   
+namespace Presentation.Controllers
+{
     [ApiController]
     [Route("api/[controller]")]
-
-    public class GuestController : Controller
+    public class GuestController : ControllerBase
     {
         private readonly IServiceManager _manager;
 
@@ -22,18 +21,18 @@ namespace FullStack.API.Controllers
         }
 
         [HttpGet]
-        public  IActionResult GetAllGuests()
+        public IActionResult GetAllGuests()
         {
-          var guests = _manager.GuestService.GetAllGuests(false);
-          
+            var guests = _manager.GuestService.GetAllGuests(false);
+
             return Ok(guests);
 
         }
-       [HttpGet]
+        [HttpGet]
         [Route("{id:Guid}")]
         public IActionResult GetOneGuest([FromRoute] Guid id)
         {
-            var  guest =  _manager.GuestService.GetOneGuestById(id,false);
+            var guest = _manager.GuestService.GetOneGuestById(id, false);
             if (guest == null)
             {
                 return NotFound();
@@ -43,25 +42,25 @@ namespace FullStack.API.Controllers
         }
 
 
-       [HttpPost]
+        [HttpPost]
         public IActionResult CreateGuests([FromBody] Guest guest)
         {
             guest.Id = Guid.NewGuid();
             _manager.GuestService.CreateOneGuest(guest);
-         
+
             return Ok(guest);
         }
         [HttpPut]
         [Route("{id:Guid}")]
 
-        public  IActionResult UpdateGuest([FromRoute] Guid id,Guest guest)
+        public IActionResult UpdateGuest([FromRoute] Guid id, Guest guest)
         {
             try
             {
                 if (guest is null)
                     return BadRequest(); //400
-                
-                _manager.GuestService.UpdateOneGuest(id,guest,true);
+
+                _manager.GuestService.UpdateOneGuest(id, guest, true);
                 return NoContent(); //204
             }
             catch (Exception ex)
@@ -71,13 +70,13 @@ namespace FullStack.API.Controllers
         }
         [HttpDelete]
         [Route("{id:Guid}")]
-        public  IActionResult DeleteGuest([FromRoute] Guid id)
-         {
-           
+        public IActionResult DeleteGuest([FromRoute] Guid id)
+        {
+
 
             _manager.GuestService.DeleteOneGuest(id, false);
-             return NoContent() ;
-         }
+            return NoContent();
+        }
 
     }
 }
