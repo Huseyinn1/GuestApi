@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FullStack.API.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class Mig_1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

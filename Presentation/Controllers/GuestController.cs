@@ -28,20 +28,6 @@ namespace Presentation.Controllers
             return Ok(guests);
 
         }
-        [HttpGet]
-        [Route("{id:Guid}")]
-        public IActionResult GetOneGuest([FromRoute] Guid id)
-        {
-            var guest = _manager.GuestService.GetOneGuestById(id, false);
-            if (guest == null)
-            {
-                return NotFound();
-            }
-            return Ok(guest);
-
-        }
-
-
         [HttpPost]
         public IActionResult CreateGuests([FromBody] Guest guest)
         {
@@ -50,6 +36,19 @@ namespace Presentation.Controllers
 
             return Ok(guest);
         }
+        [HttpGet]
+        [Route("{id:Guid}")]
+        public IActionResult GetOneGuest([FromRoute] Guid id)
+        {
+            var guest =  _manager.GuestService.GetOneGuestById(id, false);
+            if (guest == null)
+            {
+                return NotFound();
+            }
+            return Ok(guest);
+
+        }
+
         [HttpPut]
         [Route("{id:Guid}")]
 

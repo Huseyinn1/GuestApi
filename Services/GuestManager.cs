@@ -46,7 +46,7 @@ namespace Services
 
         public Guest GetOneGuestById(Guid id, bool trackChanges)
         {
-            return _manager.Guest.GetOneGuestById(id, trackChanges);
+            return  _manager.Guest.GetOneGuestById(id, trackChanges);
         }
 
         public void UpdateOneGuest(Guid id, Guest guest,bool trackChanges)

@@ -10,7 +10,7 @@ namespace Services.Contracts
     public interface IGuestService
     {
         IEnumerable<Guest> GetAllGuests(bool trackChanges);
-        Guest GetOneGuestById(Guid id,bool trackChanges);
+         Guest GetOneGuestById(Guid id,bool trackChanges);
         
         Guest CreateOneGuest(Guest guest);  
         void UpdateOneGuest(Guid id,Guest guest,bool trackChanges);
