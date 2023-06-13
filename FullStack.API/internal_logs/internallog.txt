@@ -1,0 +1,8 @@
+2023-06-13 19:27:17.7273 Info Message Template Auto Format enabled
+2023-06-13 19:27:17.8049 Info Adding target FileTarget(Name=logfile)
+2023-06-13 19:27:17.8218 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-13 19:29:46.6310 Info Message Template Auto Format enabled
+2023-06-13 19:29:46.6691 Info Adding target FileTarget(Name=logfile)
+2023-06-13 19:29:46.6845 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-13 19:36:09.6055 Info AppDomain Shutting down. LogFactory closing...
+2023-06-13 19:36:09.6055 Info LogFactory has been closed.

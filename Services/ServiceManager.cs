@@ -11,9 +11,9 @@ namespace Services
     public class ServiceManager : IServiceManager
     {
         private readonly Lazy<IGuestService> _guestService;  
-        public ServiceManager(IRepositoryManager repositoryManager)
+        public ServiceManager(IRepositoryManager repositoryManager,ILoggerService logger)
         {
-            _guestService = new Lazy<IGuestService>(() => new GuestManager(repositoryManager));
+            _guestService = new Lazy<IGuestService>(() => new GuestManager(repositoryManager,logger));
         }
         public IGuestService GuestService => _guestService.Value;
     }

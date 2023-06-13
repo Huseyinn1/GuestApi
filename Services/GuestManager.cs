@@ -12,10 +12,12 @@ namespace Services
     public class GuestManager : IGuestService
     {
         private readonly IRepositoryManager _manager;
+        private readonly ILoggerService _logger;
 
-        public GuestManager(IRepositoryManager manager)
+        public GuestManager(IRepositoryManager manager, ILoggerService logger)
         {
             _manager = manager;
+            _logger = logger;
         }
 
         public Guest CreateOneGuest(Guest guest)
@@ -33,8 +35,11 @@ namespace Services
         {
             var entity = _manager.Guest.GetOneGuestById(id,trackChanges);
             if (entity is null)
-                throw new Exception($"Guest with id:{id} could not found");
-
+            {
+                string message = $"The Guest with id:{id} could not found";
+                _logger.LogInfo(message);
+                throw new Exception(message);
+            }
             _manager.Guest.DeleteOneGuest(entity);
             _manager.Save();
 
@@ -53,8 +58,13 @@ namespace Services
         {
          var entity = _manager.Guest.GetOneGuestById(id,trackChanges);
             if(guest is null)
+            {
+                string msg = $"Guest with id:{id} could not found.";
+                _logger.LogInfo(msg);
                 throw new ArgumentNullException(nameof(guest));
+            }
             entity.firstName = guest.firstName;
+            entity.surname = guest.surname;
             entity.email = guest.email;
             entity.phone = guest.phone;
            _manager.Guest.Update(entity);
