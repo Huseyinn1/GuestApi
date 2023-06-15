@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.Exceptions;
+using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 using System;
@@ -40,11 +41,8 @@ namespace Presentation.Controllers
         [Route("{id:Guid}")]
         public IActionResult GetOneGuest([FromRoute] Guid id)
         {
-            var guest =  _manager.GuestService.GetOneGuestById(id, false);
-            if (guest == null)
-            {
-                return NotFound();
-            }
+            var guest = _manager.GuestService.GetOneGuestById(id, false);
+           
             return Ok(guest);
 
         }
@@ -54,18 +52,14 @@ namespace Presentation.Controllers
 
         public IActionResult UpdateGuest([FromRoute] Guid id, Guest guest)
         {
-            try
-            {
-                if (guest is null)
-                    return BadRequest(); //400
 
-                _manager.GuestService.UpdateOneGuest(id, guest, true);
-                return NoContent(); //204
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            if (guest is null)
+                return BadRequest(); //400
+
+            _manager.GuestService.UpdateOneGuest(id, guest, true);
+            return NoContent(); //204
+
+
         }
         [HttpDelete]
         [Route("{id:Guid}")]

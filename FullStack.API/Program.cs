@@ -3,6 +3,7 @@ using FullStack.API.Extensions;
 using Microsoft.EntityFrameworkCore;
 using NLog;
 using Repositories.Core;
+using Services.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(),"/nlog.config"));
@@ -21,11 +22,18 @@ builder.Services.ConfigureServiceManager();
 builder.Services.ConfigureLoggerService();
 var app = builder.Build();
 
+var logger = app.Services.GetRequiredService<ILoggerService>();
+app.ConfigureExceptionHandler(logger);   
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+if (app.Environment.IsProduction())
+{
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();

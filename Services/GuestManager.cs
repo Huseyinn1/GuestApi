@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.Exceptions;
+using Entities.Models;
 using Repositories.Contracts;
 using Services.Contracts;
 using System;
@@ -36,9 +37,7 @@ namespace Services
             var entity = _manager.Guest.GetOneGuestById(id,trackChanges);
             if (entity is null)
             {
-                string message = $"The Guest with id:{id} could not found";
-                _logger.LogInfo(message);
-                throw new Exception(message);
+               throw new GuestNotFoundException(id);
             }
             _manager.Guest.DeleteOneGuest(entity);
             _manager.Save();
@@ -51,7 +50,12 @@ namespace Services
 
         public Guest GetOneGuestById(Guid id, bool trackChanges)
         {
-            return  _manager.Guest.GetOneGuestById(id, trackChanges);
+            var guest =  _manager.Guest.GetOneGuestById(id, trackChanges);
+            if (guest == null)
+            {
+                throw new GuestNotFoundException(id);
+            }
+            return guest;
         }
 
         public void UpdateOneGuest(Guid id, Guest guest,bool trackChanges)
@@ -59,9 +63,7 @@ namespace Services
          var entity = _manager.Guest.GetOneGuestById(id,trackChanges);
             if(guest is null)
             {
-                string msg = $"Guest with id:{id} could not found.";
-                _logger.LogInfo(msg);
-                throw new ArgumentNullException(nameof(guest));
+                throw new GuestNotFoundException(id);
             }
             entity.firstName = guest.firstName;
             entity.surname = guest.surname;

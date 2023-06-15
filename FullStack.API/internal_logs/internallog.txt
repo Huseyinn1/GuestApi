@@ -6,3 +6,74 @@
 2023-06-13 19:29:46.6845 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
 2023-06-13 19:36:09.6055 Info AppDomain Shutting down. LogFactory closing...
 2023-06-13 19:36:09.6055 Info LogFactory has been closed.
+2023-06-15 00:33:55.1529 Info Message Template Auto Format enabled
+2023-06-15 00:33:55.2485 Info Adding target FileTarget(Name=logfile)
+2023-06-15 00:33:55.2704 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 15:16:50.7398 Info Message Template Auto Format enabled
+2023-06-15 15:16:50.8211 Info Adding target FileTarget(Name=logfile)
+2023-06-15 15:16:50.8394 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:07:28.8062 Info Message Template Auto Format enabled
+2023-06-15 19:07:28.8747 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:07:28.8918 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:07:41.4207 Info Message Template Auto Format enabled
+2023-06-15 19:07:41.4833 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:07:41.5048 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:08:01.4682 Info Message Template Auto Format enabled
+2023-06-15 19:08:01.5088 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:08:01.5245 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:08:15.6989 Info Message Template Auto Format enabled
+2023-06-15 19:08:15.7634 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:08:15.7854 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:08:40.6105 Info Message Template Auto Format enabled
+2023-06-15 19:08:40.6726 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:08:40.6882 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:09:19.8062 Info Message Template Auto Format enabled
+2023-06-15 19:09:19.8746 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:09:19.8934 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:10:48.3230 Info Message Template Auto Format enabled
+2023-06-15 19:10:48.4103 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:10:48.4323 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:12:29.4671 Info Message Template Auto Format enabled
+2023-06-15 19:12:29.5593 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:12:29.5794 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:13:13.2245 Info Message Template Auto Format enabled
+2023-06-15 19:13:13.3159 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:13:13.3457 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:14:23.2975 Info Message Template Auto Format enabled
+2023-06-15 19:14:23.3730 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:14:23.3918 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:14:46.4016 Info Message Template Auto Format enabled
+2023-06-15 19:14:46.4704 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:14:46.4882 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:18:18.9159 Info Message Template Auto Format enabled
+2023-06-15 19:18:18.9831 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:18:18.9999 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:18:36.1883 Info Message Template Auto Format enabled
+2023-06-15 19:18:36.2549 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:18:36.2749 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:19:17.3164 Info Message Template Auto Format enabled
+2023-06-15 19:19:17.3558 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:19:17.3734 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:28:50.4246 Info AppDomain Shutting down. LogFactory closing...
+2023-06-15 19:28:50.4246 Info LogFactory has been closed.
+2023-06-15 19:29:16.1266 Info Message Template Auto Format enabled
+2023-06-15 19:29:16.2022 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:29:16.2205 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 19:54:37.5729 Info Message Template Auto Format enabled
+2023-06-15 19:54:37.6572 Info Adding target FileTarget(Name=logfile)
+2023-06-15 19:54:37.6806 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 20:09:09.6779 Info Message Template Auto Format enabled
+2023-06-15 20:09:09.7414 Info Adding target FileTarget(Name=logfile)
+2023-06-15 20:09:09.7582 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 20:12:22.3415 Info Message Template Auto Format enabled
+2023-06-15 20:12:22.4175 Info Adding target FileTarget(Name=logfile)
+2023-06-15 20:12:22.4399 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 20:13:07.0287 Info Message Template Auto Format enabled
+2023-06-15 20:13:07.0908 Info Adding target FileTarget(Name=logfile)
+2023-06-15 20:13:07.1129 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 20:13:27.2869 Info Message Template Auto Format enabled
+2023-06-15 20:13:27.3255 Info Adding target FileTarget(Name=logfile)
+2023-06-15 20:13:27.3412 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
+2023-06-15 21:50:12.4829 Info Message Template Auto Format enabled
+2023-06-15 21:50:12.5851 Info Adding target FileTarget(Name=logfile)
+2023-06-15 21:50:12.6147 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\ahuse\source\repos\FullStack.API\FullStack.API\nlog.config
