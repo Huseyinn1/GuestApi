@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.DataTransferObjects;
+using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Services.Contracts
          Guest GetOneGuestById(Guid id,bool trackChanges);
         
         Guest CreateOneGuest(Guest guest);  
-        void UpdateOneGuest(Guid id,Guest guest,bool trackChanges);
+        void UpdateOneGuest(Guid id,GuestDtoForUpdate guestDto,bool trackChanges);
         void DeleteOneGuest(Guid id,bool trackChanges);
       
     }

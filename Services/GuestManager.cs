@@ -1,4 +1,6 @@
-﻿using Entities.Exceptions;
+﻿using AutoMapper;
+using Entities.DataTransferObjects;
+using Entities.Exceptions;
 using Entities.Models;
 using Repositories.Contracts;
 using Services.Contracts;
@@ -14,11 +16,13 @@ namespace Services
     {
         private readonly IRepositoryManager _manager;
         private readonly ILoggerService _logger;
+        private readonly IMapper _mapper;
 
-        public GuestManager(IRepositoryManager manager, ILoggerService logger)
+        public GuestManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper)
         {
             _manager = manager;
             _logger = logger;
+            _mapper = mapper;
         }
 
         public Guest CreateOneGuest(Guest guest)
@@ -58,17 +62,18 @@ namespace Services
             return guest;
         }
 
-        public void UpdateOneGuest(Guid id, Guest guest,bool trackChanges)
+        public void UpdateOneGuest(Guid id, GuestDtoForUpdate guestDto,bool trackChanges)
         {
          var entity = _manager.Guest.GetOneGuestById(id,trackChanges);
-            if(guest is null)
+            if(entity is null)
             {
                 throw new GuestNotFoundException(id);
             }
-            entity.firstName = guest.firstName;
-            entity.surname = guest.surname;
-            entity.email = guest.email;
-            entity.phone = guest.phone;
+            //entity.firstName = guest.firstName;
+            //entity.surname = guest.surname;
+            //entity.email = guest.email;
+            //entity.phone = guest.phone;
+            var guest = _mapper.Map(guestDto, entity);
            _manager.Guest.Update(entity);
             _manager.Save();
   

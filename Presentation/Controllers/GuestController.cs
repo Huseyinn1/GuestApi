@@ -1,4 +1,5 @@
-﻿using Entities.Exceptions;
+﻿using Entities.DataTransferObjects;
+using Entities.Exceptions;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
@@ -50,13 +51,13 @@ namespace Presentation.Controllers
         [HttpPut]
         [Route("{id:Guid}")]
 
-        public IActionResult UpdateGuest([FromRoute] Guid id, Guest guest)
+        public IActionResult UpdateGuest([FromRoute] Guid id, GuestDtoForUpdate guestDto)
         {
 
-            if (guest is null)
+            if (guestDto is null)
                 return BadRequest(); //400
 
-            _manager.GuestService.UpdateOneGuest(id, guest, true);
+            _manager.GuestService.UpdateOneGuest(id, guestDto, true);
             return NoContent(); //204
 
 

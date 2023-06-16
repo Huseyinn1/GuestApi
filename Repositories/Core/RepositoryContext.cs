@@ -8,16 +8,15 @@ using System.Threading.Tasks;
 
 namespace Repositories.Core
 {
-  
-        public class RepositoryContext : DbContext
+    public class RepositoryContext : DbContext
+    {
+        public RepositoryContext(DbContextOptions options) : base(options)
         {
-            public RepositoryContext(DbContextOptions options) : base(options)
-            {
-            }
-
-
-            public DbSet<Guest> Guests { get; set; }
         }
 
+        public DbSet<Guest> Guests { get; set; }
+
     
+    }
 }
+
