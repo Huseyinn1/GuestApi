@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities.DataTransferObjects
-{
+{   
     public record GuestDtoForUpdate(Guid Id, string firstName, string surname, string email, long phone);
+
 }

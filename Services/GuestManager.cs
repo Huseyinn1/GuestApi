@@ -47,9 +47,11 @@ namespace Services
             _manager.Save();
 
         }
-        public IEnumerable<Guest> GetAllGuests(bool trackChanges)
+        public IEnumerable<GuestDto> GetAllGuests(bool trackChanges)
         {
-           return _manager.Guest.GetAllGuests(trackChanges);
+           var guests= _manager.Guest.GetAllGuests(trackChanges);
+
+           return _mapper.Map<IEnumerable<GuestDto>>(guests);
         }
 
         public Guest GetOneGuestById(Guid id, bool trackChanges)

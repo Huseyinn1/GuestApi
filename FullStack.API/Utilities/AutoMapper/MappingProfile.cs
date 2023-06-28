@@ -9,6 +9,7 @@ namespace FullStack.API.Utilities.AutoMapper
         public MappingProfile()
         {
             CreateMap<GuestDtoForUpdate, Guest>().ForMember(dest => dest.Id, opt => opt.Ignore()); ;
+            CreateMap<Guest, GuestDto>();
         }
     }
 }
